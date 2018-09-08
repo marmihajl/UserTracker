@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+
+{% endblock head %}
+
+{% block body %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <div class="table-responsive">
+    <table id="presidents" class="table table-striped table-bordered table-sm">
+        <thead>
+        <tr>
+            <th>IP</th>
+            <th>City</th>
+            <th>Region</th>
+            <th>Region code</th>
+            <th>country</th>
+            <th>country code</th>
+            <th>continent</th>
+            <th>continent code</th>
+            <th>latitude</th>
+            <th>longitude</th>
+            <th>timezone</th>
+            <th>postalcode</th>
+            <th>currency code</th>
+            <th>currency symbol</th>
+            <th>currency exchange code</th>
+            <th>Number of visit</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in data %}
+            <tr>
+                <td>
+                    {{ user.ip }}
+                </td>
+                <td>
+                    {{ user.city }}
+                </td>
+                <td>
+                    {{ user.region }}
+                </td>
+                <td>
+                    {{ user.regionCode }}
+                </td>
+                <td>
+                    {{ user.country }}
+                </td>
+                <td>
+                    {{ user.countryCode }}
+                </td>
+                <td>
+                    {{ user.continent }}
+                </td>
+                <td>
+                    {{ user.continentCode }}
+                </td>
+                <td>
+                    {{ user.latitude }}
+                </td>
+                <td>
+                    {{ user.longitude }}
+                </td>
+                <td>
+                    {{ user.timezone }}
+                </td>
+                <td>
+                    {{ user.postalCode }}
+                </td>
+                <td>
+                    {{ user.currencyCode }}
+                </td>
+                <td>
+                    {{ user.currencySymbol }}
+                </td>
+                <td>
+                    {{ user.currencyExchangeRate }}
+                </td>
+                <td>
+                    {{ user.count }}
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    </div>
+
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(function() {
+            $('#presidents').DataTable();
+        });</script>
+
+{% endblock %}
