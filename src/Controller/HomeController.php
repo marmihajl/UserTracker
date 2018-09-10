@@ -55,7 +55,7 @@ class HomeController
 
 
         $geoip = new GeoIPLocation();
-        $geoip->setIP('74.125.224.72');
+        //$geoip->setIP('74.125.224.72');
 
         $userInfo = $this->repository->findOneBy(['ip'=>$geoip->getIP()]);
 
